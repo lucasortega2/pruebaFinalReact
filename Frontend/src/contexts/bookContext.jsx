@@ -2,7 +2,8 @@ import { createContext, useReducer, useState } from 'react';
 import generateId from '../helpers/generateId';
 import { helphttp } from '../helpers/helphttp';
 export const bookContext = createContext();
-const url = 'http://localhost:5000/books';
+const PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
+const url = `http://localhost:${PORT}/books`;
 const http = helphttp();
 const getAllBooks = async () => {
   const response = await fetch(url);
@@ -95,6 +96,7 @@ export const BookProvider = ({ children }) => {
         createBook,
         updateBook,
         deleteBookContext,
+        url,
       }}
     >
       {children}

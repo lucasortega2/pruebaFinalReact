@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   CardMedia,
   Container,
@@ -8,23 +7,15 @@ import {
   Typography,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import '../../public/books.css';
+
+import useBook from '../hooks/useBook';
+
 const Book = () => {
   const { id } = useParams();
-  const [book, setBook] = useState();
-  useEffect(() => {
-    const getBook = async () => {
-      const response = await fetch(`http://localhost:5000/books/${id}`);
-      const responseData = await response.json();
-      setBook(responseData);
-    };
-    getBook();
-  }, []);
+  const book = useBook(id);
   const { title, description, pages, image_url, publication_date, extract } =
-    book ? book[0] : '';
-
+    book || {};
   return (
     <Container maxWidth="md">
       <Paper
