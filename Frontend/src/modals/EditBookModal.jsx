@@ -10,12 +10,12 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '80vw',
-  height: '80vh',
+  width: '90vw',
+  height: '90vh',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  maxHeight: '80vh',
+  maxHeight: '90vh',
   overflowY: 'auto',
 };
 
@@ -38,9 +38,7 @@ export default function EditBookModal({
           </IconButton>
         </Box>
 
-        <DialogContent
-          sx={{ display: 'flex', justifyContent: 'center', height: '90%' }}
-        >
+        <DialogContent sx={{ display: 'flex', justifyContent: 'center' }}>
           <FormSubmitBook
             isEdit={true}
             dataToEdit={dataToEdit}

@@ -25,10 +25,10 @@ const CardComponent = ({ book }) => {
   const matches = SimpleMediaQuery('md');
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} mt={5}>
+    <Grid item xs={12} sm={6} md={4} lg={3} mt={5} spacing={100}>
       <Card
         sx={{
-          width: '250px',
+          width: '275px',
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
@@ -38,7 +38,7 @@ const CardComponent = ({ book }) => {
       >
         <CardMedia
           sx={{
-            width: '200px',
+            width: '100%',
             height: '300px',
             backgroundSize: 'contain',
           }}

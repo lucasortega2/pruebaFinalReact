@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   Grid,
-  ListItemIcon,
   ListItemText,
   Typography,
 } from '@mui/material';
@@ -24,9 +23,7 @@ const Home = () => {
         <Typography align="center" variant="h2" margin="20px auto">
           Peliculas
         </Typography>
-        <ListItemIcon
-          sx={{ display: 'flex', justifyContent: 'end', margin: '30px auto' }}
-        ></ListItemIcon>
+
         <Box
           display="flex"
           flexDirection={matches ? 'row' : 'column'}

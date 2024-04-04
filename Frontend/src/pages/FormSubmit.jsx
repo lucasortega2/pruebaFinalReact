@@ -6,7 +6,6 @@ import SimpleMediaQuery from '../hooks/useMediaQuery';
 
 const FormSubmit = () => {
   const matches = SimpleMediaQuery('md');
-  console.log(matches);
   return (
     <>
       <Grid container flexDirection="column">
