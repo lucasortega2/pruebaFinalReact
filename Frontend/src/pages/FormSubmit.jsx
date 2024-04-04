@@ -1,12 +1,20 @@
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import ListOfBooks from '../components/ListOfBooks';
 import FormSubmitBook from '../components/FormSubmitBook';
+import ButtonToHome from '../components/ButtonToHome';
+import SimpleMediaQuery from '../hooks/useMediaQuery';
+
 const FormSubmit = () => {
+  const matches = SimpleMediaQuery('md');
+  console.log(matches);
   return (
     <>
-      <Grid container>
-        <ListOfBooks />
-        <FormSubmitBook isEdit={false} />
+      <Grid container flexDirection="column">
+        <ButtonToHome />
+        <Box display="flex" flexDirection={!matches && 'column'}>
+          <ListOfBooks />
+          <FormSubmitBook isEdit={false} />
+        </Box>
       </Grid>
     </>
   );

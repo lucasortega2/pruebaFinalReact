@@ -6,18 +6,15 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import {
   Box,
-  Button,
   Collapse,
-  Grid,
+  Container,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import useForm from '../hooks/useForm';
 import EditBookModal from '../modals/EditBookModal';
 
@@ -38,7 +35,7 @@ const ListOfBooks = () => {
   };
 
   return (
-    <Grid item xs={12} sm={12} md={5} lg={3} xl={3} display="inline-flex">
+    <Box>
       <EditBookModal
         dataToEdit={dataToEdit}
         openModal={openModal}
@@ -55,7 +52,7 @@ const ListOfBooks = () => {
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {state.map((book, key) => {
+              {state?.map((book, key) => {
                 return (
                   <ListItemButton
                     onMouseEnter={() => setHoverIndex(key)}
@@ -80,16 +77,9 @@ const ListOfBooks = () => {
               })}
             </List>
           </Collapse>
-          <Box margin={3} display="flex" justifyContent="start">
-            <NavLink to="/home">
-              <Button variant="contained">
-                <ArrowBackOutlinedIcon sx={{ marginRight: 1 }} /> Back to home
-              </Button>
-            </NavLink>
-          </Box>
         </List>
       </Box>
-    </Grid>
+    </Box>
   );
 };
 

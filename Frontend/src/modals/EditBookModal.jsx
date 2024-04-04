@@ -1,16 +1,16 @@
 import Box from '@mui/material/Box';
-
+import CloseIcon from '@mui/icons-material/Close';
 import Modal from '@mui/material/Modal';
 import FormSubmitBook from '../components/FormSubmitBook';
-import { DialogContent } from '@mui/material';
+import { IconButton, DialogContent } from '@mui/material';
 const style = {
   display: 'flex',
-  justifyContent: 'center',
+  flexDirection: 'column',
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '90vw',
+  width: '80vw',
   height: '80vh',
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -32,7 +32,15 @@ export default function EditBookModal({
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <DialogContent>
+        <Box display="flex" justifyContent="flex-end">
+          <IconButton size="large" onClick={handleCloseModal}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+
+        <DialogContent
+          sx={{ display: 'flex', justifyContent: 'center', height: '90%' }}
+        >
           <FormSubmitBook
             isEdit={true}
             dataToEdit={dataToEdit}

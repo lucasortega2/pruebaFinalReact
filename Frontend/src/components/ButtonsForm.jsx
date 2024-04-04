@@ -11,7 +11,9 @@ const iconStyle = {
 const ButtonsForm = ({ isEdit, handleCloseModal }) => {
   const IconComponent = isEdit ? EditIcon : AddIcon;
   return (
-    <ListItemIcon sx={{ width: 300, justifyContent: 'center' }}>
+    <ListItemIcon
+      sx={{ width: 300, justifyContent: 'center', marginBottom: '20px' }}
+    >
       {isEdit && (
         <Button
           onClick={handleCloseModal}

@@ -13,7 +13,10 @@ import { bookContext } from '../contexts/bookContext';
 import InputFilter from '../components/InputFilter';
 import { NavLink } from 'react-router-dom';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
+import SimpleMediaQuery from '../hooks/useMediaQuery';
+
 const Home = () => {
+  const matches = SimpleMediaQuery('sm');
   const { filteredBooks } = useContext(bookContext);
   return (
     <>
@@ -23,19 +26,26 @@ const Home = () => {
         </Typography>
         <ListItemIcon
           sx={{ display: 'flex', justifyContent: 'end', margin: '30px auto' }}
+        ></ListItemIcon>
+        <Box
+          display="flex"
+          flexDirection={matches ? 'row' : 'column'}
+          justifyContent="space-between"
+          alignItems="center"
         >
+          <InputFilter />
           <NavLink to="/home/submitbook">
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              sx={{ marginRight: matches && '120px' }}
+            >
               <AutoStoriesOutlinedIcon sx={{ marginRight: 1 }} />
               <ListItemText primary="List of books" />
             </Button>
           </NavLink>
-        </ListItemIcon>
-        <Box display="flex" justifyContent="space-between">
-          <InputFilter />
         </Box>
-
-        <Grid spacing={4} container mb={10} mt={0}>
+        <Grid container>
           {filteredBooks &&
             filteredBooks.map((book, i) => (
               <CardComponent key={i} book={book} />
